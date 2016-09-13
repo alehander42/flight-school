@@ -5,10 +5,9 @@ require "radar"
 RSpec.describe Radar, ".status_for" do
   context "when the airport can be found" do
     before do
-      1/0
       stub_request(:get, "http://services.faa.gov/airport/status/JFK").
         with(:headers => {"Accept" => "application/json"}).
-        to_return(File.new(fixture("jfk")))
+        to_return(File.new(fixture("jf")))
     end
 
     subject(:status) do
